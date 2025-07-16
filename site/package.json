@@ -7,12 +7,13 @@
     "dev": "vite dev",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "vite start",
+    "start": "node build/index.js",
     "prepare": "svelte-kit sync || echo ''",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
+    "@sveltejs/adapter-node": "^5.2.13",
     "@sveltejs/kit": "^2.16.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@tailwindcss/vite": "^4.0.0",
@@ -32,7 +33,6 @@
   },
   "dependencies": {
     "@iconify/svelte": "^5.0.0",
-    "@sveltejs/adapter-node": "^5.2.13",
     "mdsvex": "^0.12.6",
     "runed": "^0.29.2",
     "three": "^0.178.0"
