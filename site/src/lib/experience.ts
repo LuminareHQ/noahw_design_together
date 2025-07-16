@@ -9,6 +9,7 @@ import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 import {UnrealBloomPass} from "three/addons/postprocessing/UnrealBloomPass.js";
+import {OrbitControls} from "three/addons/controls/OrbitControls";
 
 
 export default class Experience {
@@ -35,7 +36,7 @@ export default class Experience {
         this.#camera = new THREE.PerspectiveCamera(65, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
         this.#camera.position.set(1.63, 0.5, 1.45);
 
-        this.#controls = new MapControls(this.#camera, this.#canvas);
+        this.#controls = new OrbitControls(this.#camera, this.#canvas);
         this.#controls.enableDamping = true;
         this.#controls.dampingFactor = 0.025;
         this.#controls.minPolarAngle = 0.85;
@@ -53,7 +54,7 @@ export default class Experience {
         }
         this.#controls.touches = {
             ONE: THREE.TOUCH.ROTATE,
-            TWO: THREE.TOUCH.DOLLY_ROTATE
+            TWO: THREE.TOUCH.DOLLY_ROTATE,
         }
 
         this.#renderer = new THREE.WebGLRenderer({canvas, antialias: true, stencil: true});
