@@ -15,8 +15,8 @@ importers:
         specifier: ^0.12.6
         version: 0.12.6(svelte@5.35.1)
       runed:
-        specifier: ^0.29.2
-        version: 0.29.2(svelte@5.35.1)
+        specifier: ^0.31.0
+        version: 0.31.0(svelte@5.35.1)
       three:
         specifier: ^0.178.0
         version: 0.178.0
@@ -791,8 +791,8 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
-  runed@0.29.2:
-    resolution: {integrity: sha512-0cq6cA6sYGZwl/FvVqjx9YN+1xEBu9sDDyuWdDW1yWX7JF2wmvmVKfH+hVCZs+csW+P3ARH92MjI3H9QTagOQA==}
+  runed@0.31.0:
+    resolution: {integrity: sha512-3E3i4svY4PAwI3ANmJnZuVqWG/YJrYW3Jop3HZeycQ0KZNWoFD17Jr+sG/JutJDi15g3vpdzkL7AKk6iMHybdw==}
     peerDependencies:
       svelte: ^5.7.0
 
@@ -1527,7 +1527,7 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.44.1
       fsevents: 2.3.3
 
-  runed@0.29.2(svelte@5.35.1):
+  runed@0.31.0(svelte@5.35.1):
     dependencies:
       esm-env: 1.2.2
       svelte: 5.35.1

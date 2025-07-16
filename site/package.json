@@ -34,7 +34,7 @@
   "dependencies": {
     "@iconify/svelte": "^5.0.0",
     "mdsvex": "^0.12.6",
-    "runed": "^0.29.2",
+    "runed": "^0.31.0",
     "three": "^0.178.0"
   }
 }

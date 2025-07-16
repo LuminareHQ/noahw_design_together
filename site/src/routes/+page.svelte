@@ -49,6 +49,8 @@
         $websocket?.close();
     })
 
+    let lastMessageSent: number = $state(Date.now());
+
     function updateMouseCanvasPosition(event: MouseEvent) {
         if (!canvas) return;
         const rect = canvas.getBoundingClientRect();
@@ -56,11 +58,12 @@
             x: event.clientX - rect.left,
             y: event.clientY - rect.top
         })
-        if ($websocket) {
+        if ($websocket && $identityStates.length > 1 && Date.now() - lastMessageSent > (1000 / 20)) {
             $websocket.send(new PostEvent($identity).Mouse({
                 x: $mousePositionWorld.x,
                 y: $mousePositionWorld.z,
             }))
+            lastMessageSent = Date.now();
         }
     }
 </script>
