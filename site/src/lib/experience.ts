@@ -52,8 +52,8 @@ export default class Experience {
             RIGHT: THREE.MOUSE.ROTATE,
         }
         this.#controls.touches = {
-            ONE: THREE.TOUCH.PAN,
-            TWO: THREE.TOUCH.DOLLY_ROTATE
+            ONE: THREE.TOUCH.ROTATE,
+            TWO: THREE.TOUCH.DOLLY
         }
 
         this.#renderer = new THREE.WebGLRenderer({canvas, antialias: true, stencil: true});
