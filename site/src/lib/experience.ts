@@ -92,8 +92,6 @@ export default class Experience {
 
         const outputPass = new OutputPass();
         this.#composer.addPass(outputPass);
-
-        console.log(this.#scene.children);
     }
 
     #animate() {

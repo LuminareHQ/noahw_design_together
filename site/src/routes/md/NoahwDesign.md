@@ -6,9 +6,9 @@
 
 # Resume
 
-### Employment
-
 > [Download A Copy](/Weber_Noah_Resume.pdf)
+
+### Employment
 
 - #### SigmaTEK Systems - Post Developer
     - **Location:** Cincinnati, OH

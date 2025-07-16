@@ -37,7 +37,7 @@ async fn main() {
         .with(tracing_subscriber::fmt::layer())
         .init();
 
-    let static_frontend = ServeDir::new("site/build");
+    let _static_frontend = ServeDir::new("site/build");
 
     let clients = Mutex::new(HashSet::new());
     let (tx, _rx) = broadcast::channel(20);
@@ -52,7 +52,6 @@ async fn main() {
         .route("/ws", get(socket_handler))
         .route("/allowed-names", get(get_allowed_names))
         .layer(ServiceBuilder::new().layer(access))
-        .fallback_service(static_frontend)
         .with_state(app_state);
 
     let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")

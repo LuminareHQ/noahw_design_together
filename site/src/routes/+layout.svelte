@@ -8,4 +8,6 @@
     <title>NoahW Design</title>
 </svelte:head>
 
-{@render children()}
+<div style="background-color: var(--body-bg);" class="w-full h-full">
+    {@render children()}
+</div>
