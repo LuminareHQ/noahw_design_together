@@ -9,7 +9,7 @@ import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 import {UnrealBloomPass} from "three/addons/postprocessing/UnrealBloomPass.js";
-import {OrbitControls} from "three/addons/controls/OrbitControls";
+import {OrbitControls} from "three/addons/controls/OrbitControls.js";
 
 
 export default class Experience {

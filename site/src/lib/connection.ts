@@ -5,6 +5,7 @@ export function joinChat() {
     // return; // Disable for now
 
     websocket.set(new WebSocket("wss://" + "ws.noahw.design" + "/ws"));
+    // websocket.set(new WebSocket("ws://" + "localhost:3000" + "/ws"));
 
     get(websocket)!.onopen = function () {
         console.log("connection opened");

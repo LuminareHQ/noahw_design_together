@@ -121,20 +121,11 @@ async fn websocket(stream: WebSocket, state: Arc<AppState>) {
     // Clone things we want to pass (move) to the receiving task.
     let tx = state.tx.clone();
 
+    let sender = username.clone();
     // Spawn a task that takes messages from the websocket, prepends the user
     // name, and sends them to all broadcast subscribers.
     let mut recv_task = tokio::spawn(async move {
-        let sender = username.clone();
         while let Some(Ok(Message::Text(text))) = receiver.next().await {
-            let segments: Vec<&str> = text.splitn(4, '|').collect();
-
-            if segments.get(0) == Some(&"CM")
-                && segments.get(1) == Some(&"CURSOR")
-                && segments.get(2) == Some(&sender.as_str())
-            {
-                return;
-            }
-
             let _ = tx.send(format!("{text}"));
         }
     });
