@@ -8,6 +8,8 @@ Noah Weber's Design & Development Portfolio
 
 <hr>
 
+[Download Resume](/Weber_Noah_Resume.pdf)
+
 <h1 id="Resume">Resume</h1>
 
 ### Employment
