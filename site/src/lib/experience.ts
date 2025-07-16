@@ -1,10 +1,10 @@
 import {mousePositionCanvas, mousePositionWorld, experienceTime} from "$lib/state.svelte";
 import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
 import {MapControls} from 'three/addons/controls/MapControls.js';
-import {normalize, mousePositionToWorldPosition} from "$lib/utils";
+import {normalize, mousePositionToWorldPosition, clamp} from "$lib/utils";
 import {get} from "svelte/store";
 import * as THREE from "three";
-import {DEG2RAD} from "three/src/math/MathUtils.js";
+import {DEG2RAD, lerp} from "three/src/math/MathUtils.js";
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
@@ -34,7 +34,11 @@ export default class Experience {
 
         this.#scene = new THREE.Scene();
         this.#camera = new THREE.PerspectiveCamera(65, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-        this.#camera.position.set(1.63, 0.5, 1.45);
+
+        let initX = lerp(2, 1.63, normalize(clamp(this.#canvas.clientWidth, 700, 1490), 700, 1490));
+        let initZ = lerp(0, 1.45, normalize(clamp(this.#canvas.clientWidth, 700, 1490), 700, 1490));
+
+        this.#camera.position.set(initX, 0.5, initZ);
 
         this.#controls = new OrbitControls(this.#camera, this.#canvas);
         this.#controls.enableDamping = true;
