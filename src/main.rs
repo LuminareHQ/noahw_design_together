@@ -54,9 +54,7 @@ async fn main() {
         .layer(ServiceBuilder::new().layer(access))
         .with_state(app_state);
 
-    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000")
-        .await
-        .unwrap();
+    let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
     tracing::debug!("listening on {}", listener.local_addr().unwrap());
     axum::serve(listener, app).await.unwrap();
 }
@@ -126,8 +124,17 @@ async fn websocket(stream: WebSocket, state: Arc<AppState>) {
     // Spawn a task that takes messages from the websocket, prepends the user
     // name, and sends them to all broadcast subscribers.
     let mut recv_task = tokio::spawn(async move {
+        let sender = username.clone();
         while let Some(Ok(Message::Text(text))) = receiver.next().await {
-            // Add username before message.
+            let segments: Vec<&str> = text.splitn(4, '|').collect();
+
+            if segments.get(0) == Some(&"CM")
+                && segments.get(1) == Some(&"CURSOR")
+                && segments.get(2) == Some(&sender.as_str())
+            {
+                return;
+            }
+
             let _ = tx.send(format!("{text}"));
         }
     });
