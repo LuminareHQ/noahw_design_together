@@ -21,11 +21,17 @@
     let canvas: HTMLCanvasElement | null = null;
     const idle = $state(new IsIdle({timeout: 1000 * 7.5}));
 
+    let bgAudio: HTMLAudioElement | null = null;
+
     watch(() => idle.current, () => {
         $experience?.setIdleState(idle.current);
     })
 
     onMount(async () => {
+        // bgAudio = new Audio("/Bar.mp3");
+        // bgAudio.loop = true;
+        // bgAudio.volume = 0.05;
+
         if ($websocket) {
             $websocket.close();
         }
@@ -59,12 +65,20 @@
     }
 </script>
 
+<!--<svelte:head>-->
+<!--    <link rel="preload" href="/Bar.mp3" as="audio">-->
+<!--</svelte:head>-->
+
 
 <div class="w-full h-full relative" onmousemove={updateMouseCanvasPosition} role="presentation">
-    <canvas class="w-full h-full" bind:this={canvas}></canvas>
-    <!--    <MouseCursors/>-->
-    <!--    <ConnectedClients/>-->
-    <div class="absolute top-4 right-4">
+    <canvas class="w-full h-full" bind:this={canvas} onclick={() => {
+        // if (bgAudio && bgAudio.paused) {
+        //     bgAudio.play();
+        // }
+    }}></canvas>
+    <MouseCursors/>
+    <ConnectedClients/>
+    <div class="absolute top-2 right-2">
         <div class="relative">
             <div class="relative group">
                 <div class="absolute opacity-0 group-hover:opacity-100 group-hover:bottom-6 top-0 right-14 flex flex-col transition-all">

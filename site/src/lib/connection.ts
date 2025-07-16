@@ -4,7 +4,7 @@ import {identity, identityStates, websocket} from "$lib/state.svelte";
 export function joinChat() {
     // return; // Disable for now
 
-    websocket.set(new WebSocket("wss://positive-balance-production-0cc3.up.railway.app" + "/ws"));
+    websocket.set(new WebSocket("wss://" + "ws.noahw.design" + "/ws"));
 
     get(websocket)!.onopen = function () {
         console.log("connection opened");

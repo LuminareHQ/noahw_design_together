@@ -5,7 +5,7 @@
     import {Vector3} from "three";
 </script>
 
-<div class="absolute top-4 left-4">
+<div class="absolute top-2 left-2">
     <div class="relative">
         <div class="relative group">
             <div class="absolute opacity-0 group-hover:opacity-100 group-hover:bottom-6 top-0 left-14 flex flex-col transition-all">

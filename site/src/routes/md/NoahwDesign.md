@@ -1,12 +1,14 @@
-[<-- Back to Interactive Portfolio](/)
+[<-- Back to Interactive Portfolio](/) | [Resume](#Resume) | [Portfolio](#Portfolio)
+
+<hr>
 
 # NoahW.Design
 
-> Noah Weber's Design & Development Portfolio
+Noah Weber's Design & Development Portfolio
 
-# Resume
+<hr>
 
-> [Download A Copy](/Weber_Noah_Resume.pdf)
+<h1 id="Resume">Resume</h1>
 
 ### Employment
 
@@ -61,3 +63,23 @@
 - Developed a tool within the SigmaSidekick desktop app that reads in a supplier’s machine parameter PDF file, analyzes
   and parses out relevant information, and formats it into a SigmaNEST Tech Table from user defined options, reducing a
   manual multiday process, to around 30 seconds.
+
+<h1 id="Portfolio">Portfolio</h1>
+
+<section>
+<h2>Ossia Performance</h2>
+<img src="/ossia-performance-homepage.png" alt="Ossia Performance Homepage">
+<p><b>Ossia Performance Homepage</b></p>
+<img src="/ossia-performance-app.png" alt="Ossia Performance App">
+<p><b>Ossia Performance App</b></p>
+</section>
+
+<section>
+<h2>SigmaSidekick</h2>
+<img src="/Sidekick1.png" alt="PDF Extractor Page">
+<p><b>PDF Extractor Page</b></p>
+<img src="/Sidekick2.png" alt="Lua Addon Interface">
+<p><b>Lua Addon Interface</b></p>
+</section>
+
+© NoahW.Design 2025
