@@ -21,17 +21,11 @@
     let canvas: HTMLCanvasElement | null = null;
     const idle = $state(new IsIdle({timeout: 1000 * 7.5}));
 
-    let bgAudio: HTMLAudioElement | null = null;
-
     watch(() => idle.current, () => {
         $experience?.setIdleState(idle.current);
     })
 
     onMount(async () => {
-        // bgAudio = new Audio("/Bar.mp3");
-        // bgAudio.loop = true;
-        // bgAudio.volume = 0.05;
-
         if ($websocket) {
             $websocket.close();
         }
@@ -68,38 +62,22 @@
     }
 </script>
 
-<!--<svelte:head>-->
-<!--    <link rel="preload" href="/Bar.mp3" as="audio">-->
-<!--</svelte:head>-->
-
-
 <div class="w-full h-full relative" onmousemove={updateMouseCanvasPosition} role="presentation">
-    <canvas class="w-full h-full bg-[#0f172a]" bind:this={canvas} onclick={() => {
-        // if (bgAudio && bgAudio.paused) {
-        //     bgAudio.play();
-        // }
-    }}></canvas>
+    <canvas class="w-full h-full bg-[#0f172a]" bind:this={canvas}></canvas>
     {#if !$sceneLoaded}
         <div class="loader absolute z-50 top-[50%] left-[50%]"></div>
     {/if}
     <MouseCursors/>
     <ConnectedClients/>
-    <div class="absolute top-2 right-2">
+    <div class="absolute bottom-2 right-2 left-2 flex items-center justify-center">
         <div class="relative">
-            <div class="relative group">
-                <div class="absolute opacity-0 group-hover:opacity-100 group-hover:bottom-6 top-0 right-14 flex flex-col transition-all">
-                        <span class="text-xs text-gray-800 text-center bg-white rounded-full scale-50 group-hover:scale-100 whitespace-nowrap p-1">
-                            View Plain Text
-                        </span>
-                </div>
-                <div class="bg-white text-black rounded-full shadow m-1 relative transition-all pointer-events-auto">
+            <div class="text-black rounded-full shadow m-1 relative transition-all pointer-events-auto">
                 <span>
                     <a href="/md" target="_blank" rel="noopener noreferrer"
-                       class="bg-white w-12 h-12 rounded-full items-center justify-center flex border-1 cursor-pointer">
-                            <Icon icon="lucide:file-text" width="24" height="24"/>
+                       class="bg-white rounded-full items-center justify-center flex border-1 cursor-pointer py-2 px-4 font-semibold">
+                        View Markdown Portfolio
                     </a>
                 </span>
-                </div>
             </div>
         </div>
     </div>
