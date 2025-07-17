@@ -1,15 +1,15 @@
 import {mousePositionCanvas, mousePositionWorld, experienceTime, sceneLoaded} from "$lib/state.svelte";
-import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
-import {MapControls} from 'three/addons/controls/MapControls.js';
-import {normalize, mousePositionToWorldPosition, clamp} from "$lib/utils";
-import {get} from "svelte/store";
-import * as THREE from "three";
-import {DEG2RAD, lerp} from "three/src/math/MathUtils.js";
+import {UnrealBloomPass} from "three/addons/postprocessing/UnrealBloomPass.js";
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {normalize, mousePositionToWorldPosition, clamp} from "$lib/utils";
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
-import {UnrealBloomPass} from "three/addons/postprocessing/UnrealBloomPass.js";
 import {OrbitControls} from "three/addons/controls/OrbitControls.js";
+import {MapControls} from 'three/addons/controls/MapControls.js';
+import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
+import {DEG2RAD, lerp} from "three/src/math/MathUtils.js";
+import {get} from "svelte/store";
+import * as THREE from "three";
 
 
 export default class Experience {

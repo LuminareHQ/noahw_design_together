@@ -1,7 +1,7 @@
 <script>
-    import Icon from '@iconify/svelte';
-    import {experience, experienceTime, identity, identityStates, showMouseCursors} from "$lib/state.svelte.ts";
+    import {experience, experienceTime, identity, identityStates, showMouseCursors} from "$lib/state.svelte";
     import {identToIcon, worldPositionToMousePosition} from "$lib/utils.js";
+    import Icon from '@iconify/svelte';
     import {Vector3} from "three";
 </script>
 
@@ -9,9 +9,9 @@
     <div class="relative">
         <div class="relative group">
             <div class="absolute opacity-0 group-hover:opacity-100 group-hover:bottom-6 top-0 left-14 flex flex-col transition-all">
-                        <span class="text-xs text-gray-800 text-center bg-white rounded-full scale-50 group-hover:scale-100 whitespace-nowrap p-1">
-                            View Others Cursors
-                        </span>
+                <span class="text-xs text-gray-800 text-center bg-white rounded-full scale-50 group-hover:scale-100 whitespace-nowrap p-1">
+                    View Others Cursors
+                </span>
             </div>
             <div class="bg-white text-black rounded-full shadow m-1 relative transition-all pointer-events-auto">
                 <span>

@@ -2,7 +2,6 @@
     import {identity, identityStates, websocket} from "$lib/state.svelte.js";
     import {identToIcon} from "$lib/utils.js";
     import Icon from "@iconify/svelte";
-    import MouseCursors from "$lib/components/MouseCursors.svelte";
 </script>
 
 <div class="absolute flex flex-col items-center justify-center top-2 right-2 pointer-events-none z-50 gap-1">

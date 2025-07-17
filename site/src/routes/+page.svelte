@@ -1,22 +1,20 @@
 <script lang="ts">
-    import {onDestroy, onMount} from "svelte";
-    import {PostEvent} from "$lib/ws_events";
-    import {
-        experience,
-        identity,
-        identityStates,
-        mousePositionCanvas,
-        mousePositionWorld, sceneLoaded,
-        showMouseCursors
-    } from "$lib/state.svelte";
-    import Icon from '@iconify/svelte';
-    import {identToIcon} from "$lib/utils";
-    import Experience from "$lib/experience";
-    import {websocket} from "$lib/state.svelte";
-    import MouseCursors from "$lib/components/MouseCursors.svelte";
     import ConnectedClients from "$lib/components/ConnectedClients.svelte";
+    import MouseCursors from "$lib/components/MouseCursors.svelte";
+    import {websocket} from "$lib/state.svelte";
+    import {onDestroy, onMount} from "svelte";
     import {joinChat} from "$lib/connection";
+    import Experience from "$lib/experience";
+    import {PostEvent} from "$lib/ws_events";
     import {IsIdle, watch} from "runed";
+    import {
+        identity,
+        experience,
+        sceneLoaded,
+        identityStates,
+        mousePositionWorld,
+        mousePositionCanvas
+    } from "$lib/state.svelte";
 
     let canvas: HTMLCanvasElement | null = null;
     const idle = $state(new IsIdle({timeout: 1000 * 7.5}));

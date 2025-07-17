@@ -1,11 +1,9 @@
-import {get} from "svelte/store";
 import {identity, identityStates, websocket} from "$lib/state.svelte";
+import {env} from "$env/dynamic/public";
+import {get} from "svelte/store";
 
 export function joinChat() {
-    // return; // Disable for now
-
-    websocket.set(new WebSocket("wss://" + "ws.noahw.design" + "/ws"));
-    // websocket.set(new WebSocket("ws://" + "localhost:3000" + "/ws"));
+    websocket.set(new WebSocket(env.PUBLIC_WS_URL ?? "wss://ws.noahw.design/ws")); // Fallback to the public server
 
     get(websocket)!.onopen = function () {
         console.log("connection opened");
