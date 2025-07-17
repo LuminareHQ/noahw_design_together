@@ -6,7 +6,7 @@
         identity,
         identityStates,
         mousePositionCanvas,
-        mousePositionWorld,
+        mousePositionWorld, sceneLoaded,
         showMouseCursors
     } from "$lib/state.svelte";
     import Icon from '@iconify/svelte';
@@ -74,11 +74,14 @@
 
 
 <div class="w-full h-full relative" onmousemove={updateMouseCanvasPosition} role="presentation">
-    <canvas class="w-full h-full" bind:this={canvas} onclick={() => {
+    <canvas class="w-full h-full bg-[#0f172a]" bind:this={canvas} onclick={() => {
         // if (bgAudio && bgAudio.paused) {
         //     bgAudio.play();
         // }
     }}></canvas>
+    {#if !$sceneLoaded}
+        <div class="loader absolute z-50 top-[50%] left-[50%]"></div>
+    {/if}
     <MouseCursors/>
     <ConnectedClients/>
     <div class="absolute top-2 right-2">

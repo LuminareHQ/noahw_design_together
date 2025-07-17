@@ -10,11 +10,15 @@
 <div style="display: contents" class="h-full overflow-hidden">
     %sveltekit.body%
 </div>
-<div class="loader"></div>
+<div class="loader bottom"></div>
 </body>
 <style>
     html {
         background-color: #0f172a;
+    }
+
+    .bottom {
+        z-index: -50;
     }
 
     .loader {
@@ -34,8 +38,6 @@
         top: calc(50% - 0.5 * var(--s) - 0.5 * var(--g));
         left: calc(50% - 0.5 * var(--s) - 0.5 * var(--g));
         transform: translate(-50%, -50%);
-
-        z-index: -50;
     }
 
     .loader:before {

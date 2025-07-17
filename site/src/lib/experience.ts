@@ -1,4 +1,4 @@
-import {mousePositionCanvas, mousePositionWorld, experienceTime} from "$lib/state.svelte";
+import {mousePositionCanvas, mousePositionWorld, experienceTime, sceneLoaded} from "$lib/state.svelte";
 import {GLTFLoader} from "three/addons/loaders/GLTFLoader.js";
 import {MapControls} from 'three/addons/controls/MapControls.js';
 import {normalize, mousePositionToWorldPosition, clamp} from "$lib/utils";
@@ -35,9 +35,10 @@ export default class Experience {
         this.#scene = new THREE.Scene();
         this.#camera = new THREE.PerspectiveCamera(65, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
 
+        this.#scene.background = new THREE.Color(0x0f172a);
+
         let initX = lerp(2, 1.63, normalize(clamp(this.#canvas.clientWidth, 700, 1490), 700, 1490));
         let initZ = lerp(0, 1.45, normalize(clamp(this.#canvas.clientWidth, 700, 1490), 700, 1490));
-
         this.#camera.position.set(initX, 0.5, initZ);
 
         this.#controls = new OrbitControls(this.#camera, this.#canvas);
@@ -86,6 +87,8 @@ export default class Experience {
                 sceneGroup.position.set(0, -1.1, 0);
                 sceneGroup.scale.set(2, 2, 2);
                 this.#scene.add(sceneGroup);
+                sceneLoaded.set(true);
+                console.log("Sushi model loaded successfully");
             }
         )
 

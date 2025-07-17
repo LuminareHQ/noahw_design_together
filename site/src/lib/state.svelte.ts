@@ -8,6 +8,7 @@ export let websocket: Writable<WebSocket | null> = writable(null);
 // Experience Class
 export let experience: Writable<Experience | null> = writable(null);
 export let experienceTime: Writable<number> = writable(0);
+export let sceneLoaded: Writable<boolean> = writable(false);
 
 // Current Assigned Identity
 export let identity: Writable<string> = writable("");
