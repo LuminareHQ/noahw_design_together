@@ -88,7 +88,6 @@ export default class Experience {
                 sceneGroup.scale.set(2, 2, 2);
                 this.#scene.add(sceneGroup);
                 sceneLoaded.set(true);
-                console.log("Sushi model loaded successfully");
             }
         )
 
