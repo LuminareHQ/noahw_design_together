@@ -11,7 +11,6 @@ export function joinChat() {
 
     get(websocket)!.onclose = function () {
         console.log("connection closed");
-        location.reload();
     }
 
     get(websocket)!.onmessage = function (e) {
