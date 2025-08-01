@@ -6,11 +6,11 @@ export function joinChat() {
     websocket.set(new WebSocket(env.PUBLIC_WS_URL ?? "wss://ws.noahw.design/ws")); // Fallback to the public server
 
     get(websocket)!.onopen = function () {
-        console.log("connection opened");
+        identity.set("");
+        identityStates.set([]);
     }
 
     get(websocket)!.onclose = function () {
-        console.log("connection closed");
         joinChat();
     }
 
@@ -28,7 +28,6 @@ function parseCommand(command_string: string) {
     switch (segments[1]) {
         case "IDENT":
             identity.set(segments[2]);
-            console.log("Identity set to:", get(identity));
             break;
         case "ACTIVE":
             identityStates.update(v => [...v, ...segments.slice(2).map(ident => ({
