@@ -1,4 +1,4 @@
-import Md from "./NoahwDesign.md?raw";
+import Md from "./SigmaSidekickDocs.md?raw";
 import { compile } from "mdsvex";
 
 export const load = async () => {
